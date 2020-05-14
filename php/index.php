@@ -17,12 +17,7 @@ function getRequestVar($var, $default=null) {
     ;
 }
  
-// Экранируем вывод
-function esc($str){
-    return htmlspecialchars($str, ENT_QUOTES | ENT_IGNORE);
-}
-
-if (getRequestVar('name')  && getRequestVar('email') && getRequestVar('message')) { // Если пришло имя и сообщение
+if (getRequestVar('name')  && getRequestVar('email') && getRequestVar('message')) { // Если пришло имя, почта, сообщение
     $record  = ORM::for_table('messages')->create(); // создаем объект, таблицы messages
     $record->name = getRequestVar('name'); // записываем в него значение, в поле name
 	$record->email = getRequestVar('email');
